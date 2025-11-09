@@ -1,0 +1,30 @@
+name: Build WebWrapCLI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v1
+
+    - name: Restore NuGet packages
+      run: nuget restore WebWrapCLI.vcxproj -PackagesDirectory .\packages
+
+    - name: Build with MSBuild
+      run: msbuild WebWrapCLI.vcxproj /p:Configuration=Release /p:Platform=x64
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: WebWrapCLI-x64-Release
+        path: x64/Release
