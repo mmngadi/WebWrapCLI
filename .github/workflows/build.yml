@@ -18,10 +18,10 @@ jobs:
       uses: nuget/setup-nuget@v1
 
     - name: Restore NuGet packages
-      run: nuget restore WebWrapCLI.vcxproj -PackagesDirectory packages
+      run: nuget restore WebWrapCLI.vcxproj -PackagesDirectory ../packages
 
     - name: Restore WebView2 package
-      run: nuget install Microsoft.Web.WebView2 -Version 1.0.3595.46 -OutputDirectory packages
+      run: nuget install Microsoft.Web.WebView2 -Version 1.0.3595.46 -OutputDirectory ../packages
 
     - name: Build with MSBuild (auto-detect)
       shell: pwsh
