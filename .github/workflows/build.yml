@@ -20,8 +20,13 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore WebWrapCLI.vcxproj -PackagesDirectory .\packages
 
-    - name: Build with MSBuild
-      run: msbuild WebWrapCLI.vcxproj /p:Configuration=Release /p:Platform=x64
+    - name: Build with MSBuild (auto-detect)
+      shell: pwsh
+      run: |
+        $msbuild = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
+        -latest -products * -requires Microsoft.Component.MSBuild `
+        -find MSBuild\**\Bin\MSBuild.exe
+        & $msbuild WebWrapCLI.vcxproj /p:Configuration=Release /p:Platform=x64
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
