@@ -25,7 +25,7 @@ std::wstring stringToWString(const std::string& str) {
 // Print usage information
 void printUsage() {
     std::wcout << L"WebWrapCLI - Wrap web applications as native Windows apps\n\n";
-    std::wcout << L"Usage: WebWrapCLI.exe --target <url> [options]\n\n";
+    std::wcout << L"Usage: ww.exe --target <url> [options]\n\n";
     std::wcout << L"Required Arguments:\n";
     std::wcout << L"  --target <url>    URL or local HTML file to display\n";
     std::wcout << L"                    - Web URLs: http:// or https://\n";
@@ -37,9 +37,9 @@ void printUsage() {
     std::wcout << L"  --debug           Show console window for debugging\n";
     std::wcout << L"  --help            Show this help message\n\n";
     std::wcout << L"Example:\n";
-    std::wcout << L"  WebWrapCLI.exe --target https://example.com --name \"My App\" --icon app.ico -s\n";
-    std::wcout << L"  WebWrapCLI.exe --target file:///C:/dev/myapp/index.html --name \"Local App\"\n";
-    std::wcout << L"  WebWrapCLI.exe --target https://github.com --icon github.png\n";
+    std::wcout << L"  ww.exe --target https://example.com --name \"My App\" --icon app.ico -s\n";
+    std::wcout << L"  ww.exe --target file:///C:/dev/myapp/index.html --name \"Local App\"\n";
+    std::wcout << L"  ww.exe --target https://github.com --icon github.png\n";
 }
 
 // Parse CLI arguments

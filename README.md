@@ -29,7 +29,7 @@ WebWrapCLI allows you to turn any web application into a standalone Windows desk
 ### Command-Line Syntax
 
 ```cmd
-WebWrapCLI.exe --target <url> [options]
+ww.exe --target <url> [options]
 ```
 
 ### Required Arguments
@@ -50,42 +50,42 @@ WebWrapCLI.exe --target <url> [options]
 
 #### Basic Usage
 ```cmd
-WebWrapCLI.exe --target https://example.com
+ww.exe --target https://example.com
 ```
 
 #### With Custom Name and Icon (ICO)
 ```cmd
-WebWrapCLI.exe --target https://github.com --name "GitHub" --icon github.ico
+ww.exe --target https://github.com --name "GitHub" --icon github.ico
 ```
 
 #### With PNG Icon (Automatically Converted)
 ```cmd
-WebWrapCLI.exe --target https://example.com --name "Example" --icon logo.png
+ww.exe --target https://example.com --name "Example" --icon logo.png
 ```
 
 #### Create Desktop Shortcut Only (No Window Launch)
 ```cmd
-WebWrapCLI.exe --target https://mail.google.com --name "Gmail" --icon gmail.ico -s
+ww.exe --target https://mail.google.com --name "Gmail" --icon gmail.ico -s
 ```
 
 #### Open Local HTML File
 ```cmd
-WebWrapCLI.exe --target file:///C:/projects/myapp/index.html --name "My Local App"
+ww.exe --target file:///C:/projects/myapp/index.html --name "My Local App"
 ```
 
 #### Launch Window and Create Shortcut
 ```cmd
 # First create the shortcut
-WebWrapCLI.exe --target https://example.com --name "Example" --icon app.png -s
+ww.exe --target https://example.com --name "Example" --icon app.png -s
 
 # Then launch the window separately
-WebWrapCLI.exe --target https://example.com --name "Example" --icon app.png
+ww.exe --target https://example.com --name "Example" --icon app.png
 ```
 
 #### Debug Mode (Show Console)
 ```cmd
 # Show console window to see debug output and error messages
-WebWrapCLI.exe --target https://example.com --name "Example" --debug
+ww.exe --target https://example.com --name "Example" --debug
 ```
 
 ## Building the Project
@@ -225,7 +225,7 @@ WebWrapCLI/
 **Solution:**
 - Use the `--debug` flag to show the console window
 ```cmd
-WebWrapCLI.exe --target URL --name "App" --debug
+ww.exe --target URL --name "App" --debug
 ```
 
 ### Icon Not Displaying
