@@ -18,12 +18,10 @@ jobs:
       uses: nuget/setup-nuget@v1
 
     - name: Restore NuGet packages
-      run: nuget restore WebWrapCLI.vcxproj -PackagesDirectory ../packages
-      working-directory: WebWrapCLI
+      run: nuget restore WebWrapCLI.vcxproj -PackagesDirectory packages
 
     - name: Restore WebView2 package
-      run: nuget install Microsoft.Web.WebView2 -Version 1.0.3595.46 -OutputDirectory ../packages
-      working-directory: WebWrapCLI
+      run: nuget install Microsoft.Web.WebView2 -Version 1.0.3595.46 -OutputDirectory packages
 
     - name: Build with MSBuild (auto-detect)
       shell: pwsh
@@ -32,10 +30,9 @@ jobs:
           -latest -products * -requires Microsoft.Component.MSBuild `
           -find MSBuild\**\Bin\MSBuild.exe
         & $msbuild WebWrapCLI.vcxproj /p:Configuration=Release /p:Platform=x64
-      working-directory: WebWrapCLI
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: WebWrapCLI-x64-Release
-        path: WebWrapCLI/x64/Release
+        path: x64/Release
